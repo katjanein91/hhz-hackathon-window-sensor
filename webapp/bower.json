@@ -1,0 +1,23 @@
+{
+  "name": "eonocean home control",
+  "homepage": "https://github.com/Holger-Will/node-enocean-server-template",
+  "authors": [
+    "Holger Will <h.will@klimapartner.de>"
+  ],
+  "description": "a basic template for a browser based enocean controller for a node-enocean server",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "iot",
+    "enocean",
+    "template"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

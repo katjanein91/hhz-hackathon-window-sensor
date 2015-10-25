@@ -1,0 +1,5 @@
+body{font-family: sans-serif;background:#ddd;color:#333;}
+#monitor{background:white;border:1px solid #333;height:500px;overflow:scroll;width:500px;}
+#ch{text-align: right;width:30px;}
+#ch_dimmer{text-align: right;width:30px;}
+
