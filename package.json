@@ -1,6 +1,6 @@
 {
   "name": "node-enocean-server-template",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "a template for a full enocean home automation server",
   "main": "index.js",
   "scripts": {
