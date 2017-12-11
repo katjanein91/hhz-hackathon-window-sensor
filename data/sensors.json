@@ -1,1 +1,32 @@
-{}
+{
+    "05057e7c": {
+        "eep": "d5-00-01",
+        "id": "05057e7c",
+        "title": "window1",
+        "desc": "No desc",
+        "type": "window",
+        "last": [
+            {
+                "type": "unknown",
+                "unit": "unknown",
+                "value": "open",
+                "lastModified": "2017-12-11T18:03:37.351Z"
+            }
+        ]
+    },
+    "018a2dc6": {
+        "eep": "a5-02-05",
+        "id": "018a2dc6",
+        "title": "temperatur",
+        "desc": "No desc",
+        "type": "Temperature",
+        "last": [
+            {
+                "type": "unknown",
+                "unit": "unknown",
+                "value": 23.686274509803923,
+                "lastModified": "2017-12-11T18:01:56.808Z"
+            }
+        ]
+    }
+}

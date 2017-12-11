@@ -3,37 +3,39 @@
 <head>
 	<title>Enocean Home Control</title>
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-	<link rel="stylesheet" href="styles/main.css"/>
+	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<h1>Enocean Home Control</h1>
+<div id="windows">
+hier
+<div id="window1" class="subwindow">abc</div>
+<div id="window2"class="subwindow">def</div>
+<div id="window3" class="subwindow">ghi</div>
 <div>
-<input type="text" id="ch" value="1">
-<button type="button" id="lights_on">on</button>
-<button type="button" id="lights_off">off</button>
-</div><br/>
-<div>
-<input type="text" id="ch_dimmer" value="2">
-<button type="button" id="off_dimm">off</button>
-<button type="button" class="dimmer" data-dv="10">10</button>
-<button type="button" class="dimmer" data-dv="20">20</button>
-<button type="button" class="dimmer" data-dv="30">30</button>
-<button type="button" class="dimmer" data-dv="40">40</button>
-<button type="button" class="dimmer" data-dv="50">50</button>
-<button type="button" class="dimmer" data-dv="60">60</button>
-<button type="button" class="dimmer" data-dv="70">70</button>
-<button type="button" class="dimmer" data-dv="80">80</button>
-<button type="button" class="dimmer" data-dv="90">90</button>
-<button type="button" class="dimmer" data-dv="100">100</button>
-<button type="button" id="teach_dimm">teach in</button>
-</div><br/>
-<div id="monitor">
-
-</div>
 <script src="/socket.io/socket.io.js"></script>
     <script>
+	/*$(document).ready(function(){
+	console.log("document ready ##########################");
+	var winCount = $("#windows").length;
+	for(var i = 1; i <= 3; i++){
+		var rnd = Math.random();
+		console.log(rnd);
+		
+		if(rnd >0.5){
+			$("#window"+i).addClass("redBG");	
+		}
+		else{
+			$("#window"+ i).addClass("greenBG");
+		}
+	}
+});*/
       var socket = io();
-      socket.on("data",function(data){
+	  socket.on("window1",function(data){
+	  console.log("window1 happened",data);
+		//alert(data);
+		//$("#tb1").val(data.rawByte)
+	  });
+      /*socket.on("data",function(data){
       	$("#monitor").prepend("<div>telegram: "+data.rawByte+"</div>")
       })
       $("#lights_on").click(function(){
@@ -50,7 +52,7 @@
       })
       $("#teach_dimm").click(function(evt){
       	$.get("/dimmer/"+$("#ch_dimmer").val()+"/teach",function(){})
-      })
+      })*/
     </script>
 </body>
 </html>
