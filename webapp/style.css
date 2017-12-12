@@ -1,24 +1,95 @@
 body{
-	background-color: #CCC;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	margin-top: 10vh;
+	font-family: sans-serif;
+	background-image: url('./images/UniVaihingen.jpg');
+	background-size: 100%;
 }
-#windows{
-	Display:Block;
-	Background-Color: #EFEFEF;
-	Width:80vw;
+div{
+	overflow:hidden;
+}
+hr{
+	background-color: #ccc;
+	height:2px;
+	border: 0px;
+}
+p{
+	margin: 2px;
+}
+.divRow{
+	width: 100%;
+	display:block;
+	float: left;
+}
+.room{
+	background-color: rgba(239,239,239,0.7);
+	display:block;
+	float: left;
+	width: 80vw;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	padding: 1vw;
 }
 .subwindow{
 	float:left;
+	background-color: #c9ddff;
 	border-radius: 5px 5px 5px 5px;
--moz-border-radius: 5px 5px 5px 5px;
--webkit-border-radius: 5px 5px 5px 5px;
-border: 3px solid #000000;
-margin: 1vw;
-height: 10vh;
-width: 10vw;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 2px solid #444;
+	height: 12vh;
+	width: 9vw;
+	margin: 0.5vw;
 }
+#cal{
+	width:70%;
+}
+#temp{
+	color: #5e9bff;
+	font-size: 10vw;
+	font-weight: lighter;
+}
+#windows{
+	margin-left: auto;
+	margin-right: auto;
+}
+.leftDiv{
+	float:left;
+}
+.rightDiv{
+	float:right;
+}
+
 .greenBG{
 background-color: #00FF00;
 }
 .redBG{
-	background-color: #FF0000;
+	background-color: #d14d4d;
+}
+.shadow{
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.border{
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 2px dashed #000000;
+}
+.doorDiv{
+	height: 10vw;
+	width:10vw;
+	background-size: 10vw 10vw;
+	margin-right: 3vw;
+}
+.openDoor{
+	 background-image: url("./images/lockOpen.png");
+}
+.closedDoor{
+	 background-image: url("./images/lockClosed.png");
 }

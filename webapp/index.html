@@ -2,57 +2,112 @@
 <html>
 <head>
 	<title>Enocean Home Control</title>
-	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<div id="windows">
-hier
-<div id="window1" class="subwindow">abc</div>
-<div id="window2"class="subwindow">def</div>
-<div id="window3" class="subwindow">ghi</div>
-<div>
+	<div id="room125" class="room shadow">
+		<h1>Raum 125</h1>
+		<div id="windows" class="divRow">
+			<div id="window7" class="subwindow"></div>
+			<div id="window6"class="subwindow"></div>
+			<div id="window5" class="subwindow"></div>
+			<div id="window4" class="subwindow"></div>
+			<div id="window3"class="subwindow"></div>
+			<div id="window2" class="subwindow"></div>
+			<div id="window1" class="subwindow"></div>
+		</div>
+
+		<div id="calAndTemp" class="divRow">
+			<hr>
+			<div id="Cal" class="leftDiv">
+				<h2>IoT Hackathon<h2>
+				<h3>09:00-17:00Uhr</h3>
+			</div>
+			<div id="temp" class="rightDiv"> <p id="tempVal"></p>
+		</div>
+	</div>
+	<div id="status" class="divRow">
+			<div id="action" class="leftDiv">
+				<h1>Action required!</h1>
+			</div>
+			<div id="door" class="doorDiv rightDiv closedDoor"></div>
+	</div>
 <script src="/socket.io/socket.io.js"></script>
     <script>
-	/*$(document).ready(function(){
-	console.log("document ready ##########################");
-	var winCount = $("#windows").length;
-	for(var i = 1; i <= 3; i++){
-		var rnd = Math.random();
-		console.log(rnd);
-		
-		if(rnd >0.5){
-			$("#window"+i).addClass("redBG");	
+	$(document).ready(function(){
+	console.log("Dashboard loaded...");
+		$("#room125").fadeOut(0);
+		$("#room125").fadeIn(1000);
+	});
+		var socket = io();
+		socket.on("init", function(data){
+			console.log(data);
+			init(data);
+		});
+		socket.on("known-data", function(data){
+			knownData(data);
+		});
+
+		var diffSensors = function(title, val){
+			if(title.startsWith("door")){
+				 updateDoor(val);
+			}
+			if(title.startsWith("window")){
+				updateWindow(title, val)
+			}
+			if(title.startsWith("temperatur")){
+				updateTemp(val);
+			}
+		};
+
+		var init = function(d){
+			var i = 0;
+			var elements = Object.values(d);
+			elements.forEach(function(element){
+				diffSensors(element.title, element.last[0].value);
+			});
+		};
+
+		var knownData = function(d){
+			console.log(d);
+			var s = d.sensor;
+
+			diffSensors(s.title, s.last[0].value);
+
+		};
+
+		var updateTemp = function(d){
+			console.log("temperatur verändert",d);
+			var temp = Math.round(d);
+			$("#tempVal").html(temp+"C°");
 		}
-		else{
-			$("#window"+ i).addClass("greenBG");
-		}
-	}
-});*/
-      var socket = io();
-	  socket.on("window1",function(data){
-	  console.log("window1 happened",data);
-		//alert(data);
-		//$("#tb1").val(data.rawByte)
-	  });
-      /*socket.on("data",function(data){
-      	$("#monitor").prepend("<div>telegram: "+data.rawByte+"</div>")
-      })
-      $("#lights_on").click(function(){
-      	$.get("/button/"+$("#ch").val()+"/on",function(){})
-      })
-      $("#lights_off").click(function(){
-      	$.get("/button/"+$("#ch").val()+"/off",function(){})
-      })
-      $(".dimmer").click(function(evt){
-      	$.get("/dimmer/"+$("#ch_dimmer").val()+"/"+evt.target.getAttribute("data-dv"),function(){})
-      })
-      $("#off_dimm").click(function(evt){
-      	$.get("/dimmer/"+$("#ch_dimmer").val()+"/off",function(){})
-      })
-      $("#teach_dimm").click(function(evt){
-      	$.get("/dimmer/"+$("#ch_dimmer").val()+"/teach",function(){})
-      })*/
-    </script>
+		var updateWindow = function(id, status){
+			console.log(id);
+			console.log("fensterstatus verändert", status);
+			if(status == "open"){
+				$("#"+id).addClass("redBG");
+			}
+			if(status == "closed"){
+				$("#"+id).removeClass("redBG");
+			}
+		};
+
+		var updateDoor = function(status){
+			console.log("türstatus verändert", status);
+			if(status == "open"){
+				$("#door").fadeOut(200);
+				$("#door").removeClass("closedDoor");
+				$("#door").addClass("openDoor");
+				$("#door").fadeIn(500);
+			}
+			if(status == "closed"){
+				$("#door").fadeOut(200);
+				$("#door").addClass("closedDoor");
+				$("#door").removeClass("openDoor");
+				$("#door").fadeIn(500);
+			}
+		};
+		</script>
 </body>
 </html>
