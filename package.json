@@ -1,14 +1,10 @@
 {
-  "name": "node-enocean-server-template",
+  "name": "",
   "version": "0.1.0",
-  "description": "a template for a full enocean home automation server",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Holger-Will/node-enocean-server-template.git"
   },
   "keywords": [
     "enocean",
@@ -22,12 +18,7 @@
     "\"radio",
     "control\""
   ],
-  "author": "Holger Will",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/Holger-Will/node-enocean-server-template/issues"
-  },
-  "homepage": "https://github.com/Holger-Will/node-enocean-server-template#readme",
   "dependencies": {
     "bower": "^1.8.2",
     "express": "^4.13.3",
